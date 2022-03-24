@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What's the Weather?</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<link rel="stylesheet" href="src/styles.css" />
+<script type="text/javascript" src="src/index.js"></script>
+<script src="https://kit.fontawesome.com/56325b4d21.js" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    <div class="container">
+      <div id="main-card" style="width: 60%">
+        <div id="current-heading">
+          <div id="city-heading"><h1></h1></div>
+          <div id="date"><h2></h2></div>
+          <div id="time"><h2></h2></div>
+        </div>
+
+        
+          <form id="search-new-city">
+          <input
+            type="text"
+            id="search-bar"
+            placeholder="Enter new city here"
+            autofocus/>
+          <input type="submit" value="Submit" id="submit-search"/>
+          <button id="current-location">Current Location</button>
+        </form>
+       
+
+        <div id="weather-now">
+
+        <div class="temperature">
+          <div class="row">
+            <div class="col-1"></div>
+              <div class="col-2" id="emoji-now"><i class="fa-solid fa-cloud-rain"></i></div>
+            
+              <div class="col-1" id="high">High
+              <br>
+              <div><span id="high-today"></span>°</div>
+            </div>
+            <div class="col-1" id="currently">Now
+              <br>
+              <div><span id="current-temp"></span>°F</div>
+            </div>
+            <div class="col-1" id="low">Low
+              <br>
+              <div><span id="low-today"></span>°</div>
+           </div>
+           <div class="col-1"></div>
+           <div class="col-3 conditions">
+              <ul class="list-group">
+                <li class="list-group-item">Precipitation: <span id="current-precipitation"></span>%</li>
+                <li class="list-group-item">Humidity: <span id="current-humidity"></span>%</li>
+                <li class="list-group-item">Wind: <span id="current-windspeed"></span>m/s</li>
+              </ul>
+            </div>
+        </div>
+
+<div id="change-units">
+  <button id="change-temp-unit">Switch to C°</button>
+  <button  id="change-speed-unit">Switch to km/h</button>
+  </div>
+
+        <div class="row" id="forecast">
+            <div class="col-sm-2 card" id="outer-1">
+                <div class="card-body" >
+                  <div class="card-header" id="day-1">Tomorrow</div>
+                  <p class="card-text">
+                      <div class="forecast-emoji" id="emoji-1"></div>
+                      <div class="hi" id="high-tomorrow"> 55°/</div>
+                      <div class="lo" id="low-tomorrow">36°</div>
+                  </p>
+              </div>
+            </div>
+            <div class="col-sm-2 card blue">
+                <div class="card-body">
+                  <div class="card-header" id="day-2">The next day</div>
+                  <p class="card-text">
+                      <div class="forecast-emoji" id="emoji-2"></div>
+                      <div class="hi" id="high-the-day-after-tomorrow"> 55°/</div>
+                  
+                      <div class="lo" id="low-the-day-after-tomorrow">36°</div>
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-2 card purple">
+                  <div class="card-body">
+                    <div class="card-header" id="day-3">Tomorrow</div>
+                    <p class="card-text">
+                        <div class="forecast-emoji" id="emoji-3"></div>
+                        <div class="hi" id="high-two-days-from-now"> 55°/</div>
+                        
+                        <div class="lo" id="low-two-days-from-now">36°</div>
+                    </p>
+                </div>
+              </div>
+              <div class="col-sm-2 card blue">
+                  <div class="card-body">
+                    <div class="card-header" id="day-4">The next day</div>
+                    <p class="card-text">
+                        <div class="forecast-emoji" id="emoji-4"></div>
+                        <div class="hi" id="high-three-days-from-now"> 55°/</div>
+                        
+                        <div class="lo" id="low-three-days-from-now">36°</div>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-sm-2 card" id="outer-2">
+                    <div class="card-body">
+                      <div class="card-header" id="day-5">Tomorrow</div>
+                      <p class="card-text">
+                        <div class="forecast-emoji" id="emoji-5"></div>
+                          <div class="hi" id="high-four-days-from-now"> 55°/</div>
+                        
+                          <div class="lo" id="low-four-days-from-now">36°</div>
+                      </p>
+                  </div>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
