@@ -64,6 +64,14 @@ function displayWeather(response) {
   );
   document.querySelector("#current-precipitation").innerHTML =
     response.data.clouds.all;
+    let iconElement = document.querySelector("#emoji-now");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+   iconElement.setAttribute(
+     "alt",
+     response.data.weather[0].description;
 }
 function showSearchWeather(response) {
   let searchCityInput = document.querySelector("#search-bar");
@@ -95,6 +103,14 @@ function showTemp(response) {
   );
   document.querySelector("#current-precipitation").innerHTML =
     response.data.clouds.all;
+    let iconElement = document.querySelector("#emoji-now");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+   iconElement.setAttribute(
+     "alt",
+     response.data.weather[0].description;
 }
 function showPosition(position) {
   let lat = position.coords.latitude;
