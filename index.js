@@ -1,4 +1,5 @@
 function defaultSetting(response) {
+  let iconElement = document.querySelector("#emoji-now");
   document.querySelector("#city-heading").innerHTML = "Toronto";
   document.querySelector("#current-temp").innerHTML = Math.round(
     response.data.main.temp
@@ -9,21 +10,21 @@ function defaultSetting(response) {
   document.querySelector("#low-today").innerHTML = Math.round(
     response.data.main.temp_min
   );
+  document.querySelector("#current-condition").innerHTML =
+    response.data.weather[0].description;
   document.querySelector("#current-humidity").innerHTML = Math.round(
     response.data.main.humidity
   );
   document.querySelector("#current-windspeed").innerHTML = Math.round(
     response.data.wind.speed
   );
-  document.querySelector("#current-precipitation").innerHTML =
-    response.data.clouds.all;
-  let iconElement = document.querySelector("#emoji-now");
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
+
 function showDefaultWeather(response) {
   let city = "Toronto";
   let apiKey = "937158501a6294eb9c7d178c0f874788";
@@ -44,6 +45,7 @@ newCity.addEventListener("submit", searchCity);
 
 // Change Temperature to Search City
 function displayWeather(response) {
+  let iconElement = document.querySelector("#emoji-now");
   document.querySelector("#current-temp").innerHTML = Math.round(
     response.data.main.temp
   );
@@ -53,6 +55,8 @@ function displayWeather(response) {
   document.querySelector("#low-today").innerHTML = Math.round(
     response.data.main.temp_min
   );
+  document.querySelector("#current-condition").innerHTML =
+    response.data.weather[0].description;
   document.querySelector("#current-humidity").innerHTML = Math.round(
     response.data.main.humidity
   );
@@ -61,7 +65,6 @@ function displayWeather(response) {
   );
   document.querySelector("#current-precipitation").innerHTML =
     response.data.clouds.all;
-  let iconElement = document.querySelector("#emoji-now");
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -80,6 +83,7 @@ citySearched.addEventListener("submit", showSearchWeather);
 
 // Current location button
 function showTemp(response) {
+  let iconElement = document.querySelector("#emoji-now");
   document.querySelector("#city-heading").innerHTML = response.data.name;
   document.querySelector("#current-temp").innerHTML = Math.round(
     response.data.main.temp
@@ -90,6 +94,8 @@ function showTemp(response) {
   document.querySelector("#low-today").innerHTML = Math.round(
     response.data.main.temp_min
   );
+  document.querySelector("#current-condition").innerHTML =
+    response.data.weather[0].description;
   document.querySelector("#current-humidity").innerHTML = Math.round(
     response.data.main.humidity
   );
@@ -98,13 +104,14 @@ function showTemp(response) {
   );
   document.querySelector("#current-precipitation").innerHTML =
     response.data.clouds.all;
-  let iconElement = document.querySelector("#emoji-now");
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  console.log(response.data);
 }
+
 function showPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
@@ -112,6 +119,7 @@ function showPosition(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showTemp);
 }
+
 function getCurrent() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }

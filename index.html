@@ -26,8 +26,9 @@
       <div id="main-card" style="width: 60%">
         <div id="current-heading">
           <div id="city-heading"><h1></h1></div>
-          <div id="date"><h2></h2></div>
-          <div id="time"><h2></h2></div>
+          <span id="date"><h2></h2></span>
+          <span><i class="fa-regular fa-clock" id="clock"></i></span>
+          <span id="time"><h2></h2></span>
         </div>
 
         
@@ -45,10 +46,12 @@
         <div id="weather-now">
 
         <div class="temperature">
-          <div class="row">
-            <div class="col-1"></div>
-              <div class="col-2" id="emoji-now"><i class="fa-solid fa-cloud-rain"></i></div>
+          <div class="row today">
             
+              <div class="col-2" id="emoji-now">
+                  <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Current condition"/>
+              </div>
+          <div class="col-1"></div>
               <div class="col-1" id="high">High
               <br>
               <div><span id="high-today"></span>°</div>
@@ -61,10 +64,11 @@
               <br>
               <div><span id="low-today"></span>°</div>
            </div>
+          
            <div class="col-1"></div>
            <div class="col-3 conditions">
               <ul class="list-group">
-                <li class="list-group-item"> <span id="current-condition"></span>%</li>
+                <li class="list-group-item"> <span id="current-condition"></span></li>
                 <li class="list-group-item">Humidity: <span id="current-humidity"></span>%</li>
                 <li class="list-group-item">Wind: <span id="current-windspeed"></span>m/s</li>
               </ul>
