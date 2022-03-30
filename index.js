@@ -1,5 +1,5 @@
 function defaultSetting(response) {
-  let iconElement = document.querySelector("#emoji-now");
+  let iconElement = document.querySelector("#icon");
   document.querySelector("#city-heading").innerHTML = "Toronto";
   document.querySelector("#current-temp").innerHTML = Math.round(
     response.data.main.temp
@@ -46,7 +46,7 @@ newCity.addEventListener("submit", searchCity);
 
 // Change Temperature to Search City
 function displayWeather(response) {
-  let iconElement = document.querySelector("#emoji-now");
+  let iconElement = document.querySelector("#icon");
   document.querySelector("#current-temp").innerHTML = Math.round(
     response.data.main.temp
   );
@@ -85,7 +85,7 @@ citySearched.addEventListener("submit", showSearchWeather);
 
 // Current location button
 function showTemp(response) {
-  let iconElement = document.querySelector("#emoji-now");
+  let iconElement = document.querySelector("#icon");
   document.querySelector("#city-heading").innerHTML = response.data.name;
   document.querySelector("#current-temp").innerHTML = Math.round(
     response.data.main.temp
@@ -104,8 +104,6 @@ function showTemp(response) {
   document.querySelector("#current-windspeed").innerHTML = Math.round(
     response.data.wind.speed
   );
-  document.querySelector("#current-condition").innerHTML =
-    response.data.clouds.all;
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
