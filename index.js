@@ -23,6 +23,7 @@ function defaultSetting(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  console.log(response.data);
 }
 
 function showDefaultWeather(response) {
@@ -63,13 +64,14 @@ function displayWeather(response) {
   document.querySelector("#current-windspeed").innerHTML = Math.round(
     response.data.wind.speed
   );
-  document.querySelector("#current-precipitation").innerHTML =
-    response.data.clouds.all;
+  document.querySelector("#current-condition").innerHTML =
+    response.data.weather[0].description;
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  console.log(response.data);
 }
 function showSearchWeather(response) {
   let searchCityInput = document.querySelector("#search-bar");
@@ -102,7 +104,7 @@ function showTemp(response) {
   document.querySelector("#current-windspeed").innerHTML = Math.round(
     response.data.wind.speed
   );
-  document.querySelector("#current-precipitation").innerHTML =
+  document.querySelector("#current-condition").innerHTML =
     response.data.clouds.all;
   iconElement.setAttribute(
     "src",

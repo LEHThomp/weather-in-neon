@@ -41,10 +41,9 @@ h1 {
       0 0 42px #0fa, 0 0 63px #0fa, 0 0 72px #0fa, 0 0 127px #0fa;
   }
 }
-#time,
-#clock,
-#date {
-    color: white
+
+#clock {
+  color: white;
   font-size: 28px;
   margin: 10px;
   text-shadow: 0 0 1px rgb(255, 255, 255), 0 0 3px rgb(255, 255, 255),
@@ -66,7 +65,7 @@ h1 {
 #search-bar,
 #submit-search,
 #current-location {
-  background: #0b4c5f;
+  background: rgb(53, 214, 161, 0.4);
   border: 1px solid white;
   border-radius: 5px;
   color: white;
@@ -76,13 +75,16 @@ h1 {
   left: 300px;
   bottom: 125px;
 }
+#search-bar {
+  background-color: #0b4c5f;
+}
 #weather-now {
   margin-top: 30px;
   position: relative;
   bottom: 30px;
 }
 #emoji-now {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgb(53, 214, 161, 0.5);
   border-radius: 60px;
   box-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 9px #fff, 0 0 12px #fff,
     0 0 21px rgb(30, 191, 255), 0 0 27px rgb(30, 191, 255),
@@ -92,8 +94,8 @@ h1 {
   padding: 0;
 }
 .today {
-    position: relative;
-    left: 50px;
+  position: relative;
+  left: 50px;
 }
 #high,
 #current-temp,
@@ -105,6 +107,11 @@ h1 {
   text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px rgb(30, 191, 255),
     0 0 5px rgb(30, 191, 255), 0 0 10px rgb(30, 191, 255);
 }
+#current-point {
+  text-align: center;
+  position: relative;
+  left: 10px;
+}
 #change-temp-unit,
 #change-speed-unit {
   background: #0b4c5f;
@@ -115,14 +122,14 @@ h1 {
   margin: auto;
 }
 .list-group-item {
- background: rgba(255, 255, 255, 0.03);
+  background: rgb(53, 214, 161, 0.02);
   border: none;
   color: white;
   margin-top: 5px;
   padding: 0;
 }
 .conditions {
-   background: rgba(255, 255, 255, 0.25);
+  background: rgb(53, 214, 161, 0.5);
   border: 1px solid white;
   border-radius: 5px;
   box-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 9px #fff, 0 0 12px #fff,
@@ -135,7 +142,7 @@ h1 {
   text-align: center;
 }
 .card {
- background: rgba(255, 255, 255, 0.3);
+  background: rgb(53, 214, 161, 0.3);
   border-radius: 10px;
   margin: 10px;
 }
@@ -143,28 +150,25 @@ h1 {
 .card-heading,
 .card-text {
   padding: 0;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgb(53, 214, 161, 0.02);
 }
 .purple {
-  box-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 5px #fff,
-    0 0 7px rgb(124, 255, 211), 0 0 10px rgb(124, 255, 211),
-    0 0 11px rgb(124, 255, 211), 0 0 13px rgb(124, 255, 211);
+  box-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #fff,
+    0 0 5px rgb(124, 255, 211), 0 0 6px rgb(124, 255, 211),
+    0 0 7px rgb(124, 255, 211), 0 0 9px rgb(124, 255, 211);
 }
 .blue {
-  box-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 5px #fff,
-    0 0 12px rgb(124, 255, 211), 0 0 18px rgb(124, 255, 211),
-    0 0 20px rgb(124, 255, 211), 0 0 24px rgb(124, 255, 211);
+  box-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #fff,
+    0 0 5px rgb(124, 255, 211), 0 0 6px rgb(124, 255, 211),
+    0 0 9px rgb(124, 255, 211), 0 0 12px rgb(124, 255, 211);
 }
 #outer-1,
 #outer-2 {
-  box-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 5px #fff,
-    0 0 18px rgb(124, 255, 211), 0 0 27px rgb(124, 255, 211),
-    0 0 36px rgb(124, 255, 211), 0 0 63px rgb(124, 255, 211);
+  box-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #fff,
+    0 0 5px rgb(124, 255, 211), 0 0 6px rgb(124, 255, 211),
+    0 0 12px rgb(124, 255, 211), 0 0 18px rgb(124, 255, 211);
 }
-.forecast-emoji {
-  text-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 9px rgb(0, 110, 255),
-    0 0 12px rgb(0, 110, 255), 0 0 21px rgb(0, 110, 255);
-}
+
 #tag {
   font-size: small;
   text-align: center;
