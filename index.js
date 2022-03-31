@@ -1,9 +1,9 @@
 function defaultSetting(response) {
   let iconElement = document.querySelector("#icon");
   document.querySelector("#city-heading").innerHTML = "Toronto";
-  document.querySelector("#current-temp").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  let currentTemp = document.querySelector("#current-temp");
+  let tempNow = Math.round(response.data.main.temp);
+  currentTemp.innerHTML = `${tempNow}°F`;
   document.querySelector("#high-today").innerHTML = Math.round(
     response.data.main.temp_max
   );
@@ -48,9 +48,9 @@ newCity.addEventListener("submit", searchCity);
 // Change Temperature to Search City
 function displayWeather(response) {
   let iconElement = document.querySelector("#icon");
-  document.querySelector("#current-temp").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  let currentTemp = document.querySelector("#current-temp");
+  let tempNow = Math.round(response.data.main.temp);
+  currentTemp.innerHTML = `${tempNow}°F`;
   document.querySelector("#high-today").innerHTML = Math.round(
     response.data.main.temp_max
   );
@@ -88,9 +88,9 @@ citySearched.addEventListener("submit", showSearchWeather);
 function showTemp(response) {
   let iconElement = document.querySelector("#icon");
   document.querySelector("#city-heading").innerHTML = response.data.name;
-  document.querySelector("#current-temp").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  let currentTemp = document.querySelector("#current-temp");
+  let tempNow = Math.round(response.data.main.temp);
+  currentTemp.innerHTML = `${tempNow}°F`;
   document.querySelector("#high-today").innerHTML = Math.round(
     response.data.main.temp_max
   );

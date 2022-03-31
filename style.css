@@ -99,13 +99,11 @@ h1 {
 }
 #high,
 #current-temp,
-#low,
-#fahr {
+#low {
   text-align: center;
 }
 #current-temp,
-#currently,
-#fahr {
+#currently {
   text-shadow: 0 0 1px #fff, 0 0 1px #fff, 0 0 2px rgb(0, 255, 170),
     0 0 3px rgb(0, 255, 170), 0 0 12px rgb(0, 255, 170);
 }
