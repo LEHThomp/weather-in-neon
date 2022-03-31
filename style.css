@@ -1,5 +1,5 @@
 body {
-  background: #0b4c5f;
+  background: #4c98d6;
   background-size: 100%;
   color: white;
   font-family: Quicksand;
@@ -65,7 +65,7 @@ h1 {
 #search-bar,
 #submit-search,
 #current-location {
-  background: rgb(53, 214, 161, 0.4);
+  background: rgba(53, 163, 214, 0.4);
   border: 1px solid white;
   border-radius: 5px;
   color: white;
@@ -76,7 +76,7 @@ h1 {
   bottom: 125px;
 }
 #search-bar {
-  background-color: #0b4c5f;
+  background: rgba(174, 229, 255, 0.8);
 }
 #weather-now {
   margin-top: 30px;
@@ -84,11 +84,11 @@ h1 {
   bottom: 30px;
 }
 #emoji-now {
-  background: rgb(53, 214, 161, 0.5);
+  background: rgba(0, 255, 170, 0.5);
   border-radius: 60px;
-  box-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 9px #fff, 0 0 12px #fff,
-    0 0 21px rgb(30, 191, 255), 0 0 27px rgb(30, 191, 255),
-    0 0 36px rgb(30, 191, 255), 0 0 54px rgb(30, 191, 255);
+  box-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff,
+    0 0 12px rgb(0, 255, 170), 0 0 18px rgb(0, 255, 170),
+    0 0 21px rgb(0, 255, 170), 0 0 27px rgb(0, 255, 170);
   text-align: center;
   margin: 0;
   padding: 0;
@@ -99,27 +99,39 @@ h1 {
 }
 #high,
 #current-temp,
-#low {
+#low,
+#fahr {
   text-align: center;
 }
 #current-temp,
-#currently {
-  text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px rgb(30, 191, 255),
-    0 0 5px rgb(30, 191, 255), 0 0 10px rgb(30, 191, 255);
+#currently,
+#fahr {
+  text-shadow: 0 0 1px #fff, 0 0 1px #fff, 0 0 2px rgb(0, 255, 170),
+    0 0 3px rgb(0, 255, 170), 0 0 12px rgb(0, 255, 170);
 }
 #current-point {
   text-align: center;
   position: relative;
   left: 10px;
 }
-#change-temp-unit,
-#change-speed-unit {
-  background: #0b4c5f;
-  border: none;
+.active {
+  color: white;
+  cursor: default;
+  text-decoration: none;
+  text-shadow: 0 0 1px #fff, 0 0 1px #fff, 0 0 2px rgb(0, 255, 170),
+    0 0 3px rgb(0, 255, 170), 0 0 12px rgb(0, 255, 170);
+}
+#change-temp-unit {
+  text-align: center;
   color: white;
   display: block;
-  font-size: 10px;
+  font-size: 14px;
   margin: auto;
+  transition: all 0.2s ease-in-out;
+}
+#change-temp-unit:hover {
+  color: #0fa;
+  cursor: pointer;
 }
 .list-group-item {
   background: rgb(53, 214, 161, 0.02);
@@ -129,12 +141,12 @@ h1 {
   padding: 0;
 }
 .conditions {
-  background: rgb(53, 214, 161, 0.5);
+  background: rgba(0, 255, 170, 0.5);
   border: 1px solid white;
   border-radius: 5px;
-  box-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 9px #fff, 0 0 12px #fff,
-    0 0 21px rgb(30, 191, 255), 0 0 27px rgb(30, 191, 255),
-    0 0 36px rgb(30, 191, 255), 0 0 54px rgb(30, 191, 255);
+  box-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff,
+    0 0 12px rgb(0, 255, 170), 0 0 18px rgb(0, 255, 170),
+    0 0 21px rgb(0, 255, 170), 0 0 27px rgb(0, 255, 170);
   text-align: left;
 }
 #forecast {

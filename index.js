@@ -22,6 +22,7 @@ function defaultSetting(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  fahrenheitTemp = response.data.main.temp;
   iconElement.setAttribute("alt", response.data.weather[0].description);
   console.log(response.data);
 }
@@ -70,6 +71,7 @@ function displayWeather(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  fahrenheitTemp = response.data.main.temp;
   iconElement.setAttribute("alt", response.data.weather[0].description);
   console.log(response.data);
 }
@@ -108,6 +110,7 @@ function showTemp(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  fahrenheitTemp = response.data.main.temp;
   iconElement.setAttribute("alt", response.data.weather[0].description);
   console.log(response.data);
 }
@@ -207,3 +210,5 @@ function changeTemp(event) {
 let tempLink = document.querySelector("#change-temp-unit");
 tempLink.addEventListener("click", changeTemp);
 let currentUnit = "ºF";
+
+let fahrenheitTemp = null;
