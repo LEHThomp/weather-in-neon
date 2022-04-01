@@ -2,7 +2,8 @@ function defaultSetting(response) {
   let iconElement = document.querySelector("#icon");
   document.querySelector("#city-heading").innerHTML = "Toronto";
   let currentTemp = document.querySelector("#current-temp");
-  let tempNow = Math.round(response.data.main.temp);
+  fahrenheit = response.data.main.temp;
+  let tempNow = Math.round(fahrenheit);
   currentTemp.innerHTML = `${tempNow}°F`;
   document.querySelector("#high-today").innerHTML = Math.round(
     response.data.main.temp_max
@@ -49,7 +50,8 @@ newCity.addEventListener("submit", searchCity);
 function displayWeather(response) {
   let iconElement = document.querySelector("#icon");
   let currentTemp = document.querySelector("#current-temp");
-  let tempNow = Math.round(response.data.main.temp);
+  fahrenheit = response.data.main.temp;
+  let tempNow = Math.round(fahrenheit);
   currentTemp.innerHTML = `${tempNow}°F`;
   document.querySelector("#high-today").innerHTML = Math.round(
     response.data.main.temp_max
@@ -89,7 +91,8 @@ function showTemp(response) {
   let iconElement = document.querySelector("#icon");
   document.querySelector("#city-heading").innerHTML = response.data.name;
   let currentTemp = document.querySelector("#current-temp");
-  let tempNow = Math.round(response.data.main.temp);
+  fahrenheit = response.data.main.temp;
+  let tempNow = Math.round(fahrenheit);
   currentTemp.innerHTML = `${tempNow}°F`;
   document.querySelector("#high-today").innerHTML = Math.round(
     response.data.main.temp_max
@@ -182,29 +185,24 @@ currentTime.innerHTML = formatTime(now);
 
 // Change Temperature from Fahrenheit to Celsius
 
-function convertToCelsius(event) {
-  event.preventDefault();
-  let currentTemp = document.querySelector("#current-temp");
-  currentTemp.innerHTML = `19° C`;
-}
-
-let celsiusLink = document.querySelector("#change-temp-unit");
-celsiusLink.addEventListener("click", convertToCelsius);
-
 function changeTemp(event) {
   event.preventDefault();
   let currentTemp = document.querySelector("#current-temp");
-
+  let celsiusTemp = (fahrenheit - 32) * (5 / 9);
+  let celsiusTemperature = Math.round(celsiusTemp);
+  let returnFahrenheit = Math.round(fahrenheit);
   if (currentUnit === "ºF") {
-    currentTemp.innerHTML = "19°C";
+    currentTemp.innerHTML = `${celsiusTemperature}°C`;
     tempLink.innerHTML = "Switch to ºF";
     currentUnit = "ºC";
   } else {
-    currentTemp.innerHTML = "40°F";
+    currentTemp.innerHTML = `${returnFahrenheit}°F`;
     tempLink.innerHTML = "Switch to °C";
     currentUnit = "ºF";
   }
 }
+
+let fahrenheit = null;
 
 let tempLink = document.querySelector("#change-temp-unit");
 tempLink.addEventListener("click", changeTemp);
