@@ -23,9 +23,9 @@ function defaultSetting(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-
   iconElement.setAttribute("alt", response.data.weather[0].description);
   console.log(response.data);
+  displayForecast();
 }
 
 function showDefaultWeather(response) {
@@ -82,6 +82,7 @@ function showSearchWeather(response) {
   let apiKey = "937158501a6294eb9c7d178c0f874788";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayWeather);
+  displayForecast();
 }
 let citySearched = document.querySelector("#search-new-city");
 citySearched.addEventListener("submit", showSearchWeather);
@@ -114,7 +115,7 @@ function showTemp(response) {
   );
   fahrenheitTemp = response.data.main.temp;
   iconElement.setAttribute("alt", response.data.weather[0].description);
-  console.log(response.data);
+  displayForecast();
 }
 
 function showPosition(position) {
@@ -200,6 +201,30 @@ function changeTemp(event) {
     tempLink.innerHTML = "Switch to °C";
     currentUnit = "ºF";
   }
+}
+
+// Forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-sm-2 card" id="outer-1">
+                <div class="card-body" >
+                  <div class="card-header" id="day-1">${day}</div>
+                  <p class="card-text">
+                      <div class="forecast-emoji" id="emoji-1"></div>
+                      <div class="hi" id="weather-forecast-temp-max"> 55°/</div>
+                      <div class="lo" id="weather-forecast-temp-min">36°</div>
+                  </p>
+              </div>
+            </div>`;
+  });
+  forecastHTML = forecastHTML + `</div`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
 }
 
 let fahrenheit = null;
