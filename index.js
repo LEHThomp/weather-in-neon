@@ -1,3 +1,58 @@
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "937158501a6294eb9c7d178c0f874788";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  console.log(response.data);
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="card col-2 mid">
+             <div class="card-body">
+        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+   
+        <img
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
+          alt="icon"
+          width="54"
+        />
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max" id="forecast-max"> ${Math.round(
+            forecastDay.temp.max
+          )}° </span>
+          <span class="weather-forecast-temperature-min"> ${Math.round(
+            forecastDay.temp.min
+          )}° </span>
+          </div>
+        </div>
+      </div>
+  `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function defaultSetting(response) {
   let iconElement = document.querySelector("#icon");
   document.querySelector("#city-heading").innerHTML = "Toronto";
@@ -24,8 +79,7 @@ function defaultSetting(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
-  console.log(response.data);
-  displayForecast();
+  getForecast(response.data.coord);
 }
 
 function showDefaultWeather(response) {
@@ -74,7 +128,7 @@ function displayWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
-  console.log(response.data);
+  getForecast(response.data.coord);
 }
 function showSearchWeather(response) {
   let searchCityInput = document.querySelector("#search-bar");
@@ -82,7 +136,6 @@ function showSearchWeather(response) {
   let apiKey = "937158501a6294eb9c7d178c0f874788";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayWeather);
-  displayForecast();
 }
 let citySearched = document.querySelector("#search-new-city");
 citySearched.addEventListener("submit", showSearchWeather);
@@ -115,7 +168,7 @@ function showTemp(response) {
   );
   fahrenheitTemp = response.data.main.temp;
   iconElement.setAttribute("alt", response.data.weather[0].description);
-  displayForecast();
+  getForecast(response.data.coord);
 }
 
 function showPosition(position) {
@@ -201,30 +254,6 @@ function changeTemp(event) {
     tempLink.innerHTML = "Switch to °C";
     currentUnit = "ºF";
   }
-}
-
-// Forecast
-function displayForecast() {
-  let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row">`;
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-sm-2 card" id="outer-1">
-                <div class="card-body" >
-                  <div class="card-header" id="day-1">${day}</div>
-                  <p class="card-text">
-                      <div class="forecast-emoji" id="emoji-1"></div>
-                      <div class="hi" id="weather-forecast-temp-max"> 55°/</div>
-                      <div class="lo" id="weather-forecast-temp-min">36°</div>
-                  </p>
-              </div>
-            </div>`;
-  });
-  forecastHTML = forecastHTML + `</div`;
-  forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
 }
 
 let fahrenheit = null;

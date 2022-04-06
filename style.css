@@ -13,7 +13,7 @@ body {
   display: block;
   margin: 0 auto;
   margin-top: 30px;
-  padding: 20px 20px 5px 20px;
+  padding: 20px 20px 0px 20px;
 }
 #city-heading,
 h1 {
@@ -84,7 +84,7 @@ h1 {
   bottom: 30px;
 }
 #emoji-now {
-  background: rgba(82, 163, 255, 0.5);
+  background: rgba(160, 204, 255, 0.5);
   border-radius: 60px;
   box-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff,
     0 0 12px rgb(0, 255, 170), 0 0 18px rgb(0, 255, 170),
@@ -101,9 +101,12 @@ h1 {
 #current-temp,
 #low {
   text-align: center;
+  font-size: larger;
 }
 #current-temp,
 #currently {
+  text-align: center;
+  font-size: larger;
   text-shadow: 0 0 1px #fff, 0 0 1px #fff, 0 0 2px rgb(0, 255, 170),
     0 0 3px rgb(0, 255, 170), 0 0 12px rgb(0, 255, 170);
 }
@@ -132,14 +135,14 @@ h1 {
   cursor: pointer;
 }
 .list-group-item {
-  background: rgb(53, 214, 161, 0.02);
+  background: rgb(160, 204, 255, 0.02);
   border: none;
   color: white;
   margin-top: 5px;
   padding: 0;
 }
 .conditions {
-  background: rgba(82, 163, 255, 0.5);
+  background: rgba(160, 204, 255, 0.5);
   border: 1px solid white;
   border-radius: 5px;
   box-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff,
@@ -152,34 +155,37 @@ h1 {
   text-align: center;
 }
 .card {
-  background: rgb(82, 163, 255, 0.3);
+  background: rgba(160, 204, 255, 0.3);
   border-radius: 10px;
   margin: 10px;
 }
 .card-body,
-.card-heading,
+.card-header,
 .card-text {
   padding: 0;
-  background: rgb(53, 214, 161, 0.02);
+  background: transparent;
 }
-.purple {
-  box-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #fff,
-    0 0 5px rgb(124, 255, 211), 0 0 6px rgb(124, 255, 211),
-    0 0 7px rgb(124, 255, 211), 0 0 9px rgb(124, 255, 211);
-}
-.blue {
+
+.mid {
   box-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #fff,
     0 0 5px rgb(124, 255, 211), 0 0 6px rgb(124, 255, 211),
     0 0 9px rgb(124, 255, 211), 0 0 12px rgb(124, 255, 211);
 }
-#outer-1,
-#outer-2 {
-  box-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #fff,
-    0 0 5px rgb(124, 255, 211), 0 0 6px rgb(124, 255, 211),
-    0 0 12px rgb(124, 255, 211), 0 0 18px rgb(124, 255, 211);
+
+.weather-forecast-date {
+  font-size: 18px;
+}
+.weather-forecast-temperature-min,
+.weather-forecast-temperature-max {
+  font-size: 16px;
+}
+.weather-forecast-temperature-max {
+  font-weight: 900;
 }
 
 #tag {
   font-size: small;
   text-align: center;
+  position: relative;
+  top: 10px;
 }
