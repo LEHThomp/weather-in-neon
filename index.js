@@ -18,6 +18,9 @@ function displayWeather(response) {
   let currentTemp = document.querySelector("#current-temp");
   let tempNow = Math.round(fahrenheit);
 
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+
   document.querySelector("#city-heading").innerHTML = response.data.name;
   currentTemp.innerHTML = `${tempNow}`;
   document.querySelector("#high-today").innerHTML = Math.round(
