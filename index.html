@@ -48,7 +48,6 @@
        
 
         <div id="weather-now">
-
         <div class="temperature">
           <div class="row today">
             
@@ -59,17 +58,24 @@
               <div class="col-1" id="high">High
               <br>
               <div><span id="high-today"></span>°</div>
-            </div>
-            <div class="col-1" id="currently">Now
-              <br>
-              <div><span id="current-temp"></span></div>
-              <div><span id="current-point">  <i class="fa-solid fa-chevron-up">  </i></span></div>
-            </div>
-            <div class="col-1" id="low">Low
-              <br>
+            <div><span id="low">Low</span></div>
               <div><span id="low-today"></span>°</div>
            </div>
-          
+            <div class="col-2" id="currently">Now
+              <br>
+<div><span class="temperature" id="current-temperature">
+  <div><span id="current-temp"></span></div>
+                      </span>
+                    
+                        <div class="units"
+                        ><a href="#" id="fahrenheit-link" class="active">°F</a>
+                        |
+                        <a href="#" id="celsius-link">°C</a>
+                    </div>
+              
+            </div>
+            </div>
+    
            <div class="col-1"></div>
            <div class="col-3 conditions">
               <ul class="list-group">
@@ -80,9 +86,7 @@
             </div>
         </div>
 
-<div id="change-units">
-  <a href="#" id="change-temp-unit">Switch to C°</a>
-  </div>
+<br>
 <div id="forecast">
 </div>
  <div id="tag"><i class="fa-solid fa-code"></i>
