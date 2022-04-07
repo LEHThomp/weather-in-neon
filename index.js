@@ -55,7 +55,8 @@ showDefaultWeather("Toronto");
 
 // Change Temperature to Search City
 
-function showSearchWeather(response) {
+function showSearchWeather(event) {
+  event.preventDefault();
   let searchCityInput = document.querySelector("#search-bar");
   let city = `${searchCityInput.value}`;
   let apiKey = "937158501a6294eb9c7d178c0f874788";
@@ -75,7 +76,8 @@ function showPosition(position) {
   axios.get(apiUrl).then(displayWeather);
 }
 
-function getCurrent() {
+function getCurrent(event) {
+  event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
