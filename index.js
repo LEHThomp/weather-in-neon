@@ -145,7 +145,7 @@ function toCelsius(event) {
   event.preventDefault();
   fahrenheitLink.classList.remove("active");
   celsiusLink.classList.add("active");
-  let currentTemperature = document.querySelector("#current-temperature");
+  let currentTemperature = document.querySelector("#current-temp");
   let highTemperature = document.querySelector("#high-today");
   let lowTemperature = document.querySelector("#low-today");
   let celsius = Math.round((fahrenheit - 32) * (5 / 9));
@@ -179,7 +179,7 @@ function toFahrenheit(event) {
   event.preventDefault();
   fahrenheitLink.classList.add("active");
   celsiusLink.classList.remove("active");
-  let currentTemperature = document.querySelector("#current-temperature");
+  let currentTemperature = document.querySelector("#current-temp");
   let highTemperature = document.querySelector("#high-today");
   let lowTemperature = document.querySelector("#low-today");
   let fahrenheitTemperature = Math.round(fahrenheit);
